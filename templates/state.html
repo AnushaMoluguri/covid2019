@@ -1,0 +1,52 @@
+{% extends 'common.html' %}
+{% block anu %}
+    <style>
+    .t2
+    {
+        background-color: cornflowerblue;
+        color: navajowhite;
+        text-align: center;
+        font-family: "Times New Roman";
+        font-size:25px ;
+    }
+    #t1
+    {
+        text-align: center;
+        color: chartreuse;
+        background-color: darkblue;
+        width: 600px;
+        font-size: 40px;
+
+    }
+
+    .t
+    {
+        text-align: center;
+        color: chartreuse;
+        background-color: darkblue;
+        font-size: 30px;
+    }
+    </style>
+
+    <h1 style="text-align: center;color: darkblue">{{ sname }}</h1>
+    <h2 style="text-align: center;color: darkblue">State Code-{{ data.statecode }}</h2>
+    <table align="center" border="2">
+    <tr>
+        <th id="t1">District Name</th>
+        <th class="t">Confirmed</th>
+        <th class="t">Deceased</th>
+        <th class="t">Recovered</th>
+        </tr>
+    {% for x,y in data.districtData.items %}
+
+    <tr>
+        <th class="t2">{{ x }}</th>
+        <th class="t2">{{ y.confirmed }}</th>
+        <th class="t2">{{ y.deceased }}</th>
+        <th class="t2">{{ y.recovered }}</th>
+    </tr>
+
+    {% endfor %}
+
+    </table>
+{% endblock %}
